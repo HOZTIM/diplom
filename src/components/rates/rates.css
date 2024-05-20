@@ -1,0 +1,92 @@
+.rates {
+  display: flex;
+  flex-direction: column;
+}
+.rates_top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 150px;
+}
+.rates_cards {
+  display: flex;
+  justify-content: space-between;
+}
+.rates_rate {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #fff;
+  width: 380px;
+  height: 880px;
+  justify-content: space-between;
+}
+.rates_title {
+  font-size: 36px;
+  color: #fff;
+  text-align: start;
+}
+.rates_descritrion {
+  color: #fff;
+  text-align: start;
+  padding: 25px 0;
+}
+.rate_title {
+  padding: 15px 25px;
+  text-align: start;
+  font-size: 36px;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.rate_content {
+  padding: 15px 25px;
+  color: #fff;
+  text-align: start;
+}
+.bold {
+  font-weight: bold;
+}
+.rate_content {
+  height: 500px;
+}
+.rate_btn {
+    cursor: pointer;
+  display: flex;
+  background-color: rgb(225, 255, 41);
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+.discont {
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  border-radius: 5px;
+  background-color: rgb(225, 255, 41);
+}
+.old_price{
+    text-align: start;
+    color: #fff;
+    opacity: 60%;
+    font-size: 21px;
+}
+.new_price{
+    text-align: start;
+    color: #fff;
+    font-size: 64px;
+}
+.currency{
+    color: #fff;
+}
+.plan{
+    color: #fff;
+}
+.price_desc{
+    display: flex;
+    justify-content: space-around;
+}
+.rate_price{
+    padding: 15px;
+}

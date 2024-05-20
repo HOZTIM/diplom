@@ -5,8 +5,10 @@ import { Skills } from "../skills/Skills.tsx";
 import { TitleWindow } from "../titleWindow/titleWindow.tsx";
 import "./main.css";
 import { Works } from "../works/Works.tsx";
-import {Authors} from "../authors/Authors.tsx"
+import { Authors } from "../authors/Authors.tsx";
 import { TrainingProgram } from "../trainingProgram/TrainingProgram.tsx";
+import { Career } from "../career/Career.tsx";
+import { Rates } from "../rates/Rates.tsx";
 function Main() {
   const faqs = [
     {
@@ -179,7 +181,13 @@ function Main() {
         <Authors />
       </div>
       <div className="container">
-        <TrainingProgram/>
+        <TrainingProgram />
+      </div>
+      {/* <div className="container"> */}
+        <Career />
+      {/* </div> */}
+      <div className="container">
+        <Rates />
       </div>
       <div className="container">
         <FAQs faqs={faqs} />
