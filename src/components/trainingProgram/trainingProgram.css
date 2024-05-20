@@ -1,0 +1,29 @@
+.trainingProgram{
+    margin: 100px 0;
+    display: flex;
+    flex-direction: column;
+}
+.trainingProgram_top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.trainingProgram_title, .desc_title{
+    font-size: 42px;
+    color:#fff;
+    text-align: start;
+}
+.desc_desc{
+    font-size: 16px;
+    color: #fff;
+    opacity: 60%;
+}
+.desc{
+    padding-right: 100px;
+    text-align: start;
+}
+.desc_content{
+    font-size: 18px;
+    color: #fff;
+    padding: 25px 0;
+}

@@ -1,0 +1,86 @@
+.titleWindow {
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../img/cat.png");
+  background-repeat: no-repeat;
+  
+}
+.titleWindow_shadow{
+    background-image: linear-gradient(0turn,rgba(22,22,22,1) 0%,rgba(0,0,0,0) 53%);
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  padding-right: 50%;
+}
+.logo_img {
+  width: 130px;
+  height: 130px;
+}
+.logo_title {
+  font-size: 20px;
+  color: #fff;
+}
+.titleWindow_description {
+  font-size: 21px;
+  color: #fff;
+}
+.newSkills_skill {
+  border-bottom: 3px solid #fff;
+  margin: 8px 0;
+  padding-bottom: 10px;
+}
+.titleWindow_middle {
+  display: flex;
+  flex-direction: row;
+  margin: 50px auto 0 auto;
+  justify-content: space-between;
+}
+.order_el {
+  padding: 0 50px;
+}
+.order_form {
+  display: flex;
+  flex-direction: column;
+}
+.titleWindow_footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+.award_title {
+  font-size: 24px;
+  color: #fff;
+}
+.award_text {
+  font-size: 18px;
+  color: #fff;
+  opacity: 70%;
+}
+.inputForm {
+  margin: 4px 0;
+  border: 0;
+  padding: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: 2px solid #eee;
+  font: inherit;
+  font-size: 24px;
+  line-height: 30px;
+  opacity: 60%;
+  color: #fff;
+}
+.h3Form {
+  color: #fff;
+}
+.btnForm {
+  margin-top: 10px;
+  height: 60px;
+  color: #000;
+  font-size: 20px;
+  background-color: #fbbc05;
+} 

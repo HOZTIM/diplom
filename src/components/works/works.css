@@ -1,0 +1,114 @@
+.works {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+}
+.works_top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  /* padding: 10px; */
+  max-height: 500px;
+  overflow-y: scroll;
+  margin: 40px 0;
+}
+.image-container .image {
+  height: 250px;
+  width: 350px;
+  border: 10px solid #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+}
+.image-container .image .image_img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: 0.2s linear;
+}
+.image-container .image:hover .image_img {
+  transform: scale(1.1);
+}
+.popup-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.9);
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+}
+.hidden {
+  display: none;
+}
+.popup-image .popup_span {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 40px;
+  font-weight: bolder;
+  color: #fff;
+  cursor: pointer;
+  z-index: 100;
+}
+.popup-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #fff;
+  border-radius: 5px;
+  width: 750px;
+  object-fit: cover;
+}
+.image-container::-webkit-scrollbar-thumb {
+  background-color: #000;
+}
+.image-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #c5c5c5;
+}
+.image-container::-webkit-scrollbar {
+  width: 10px;
+  background-color: #181818;
+}
+
+.image-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #5a5a5a;
+}
+
+.image-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #181818;
+}
+
+.works_title{
+    color: #fff;
+    font-size: 36px;
+}
+.works_description{
+    color: #fff;
+    font-size: 21px;
+    text-align: start;
+    padding-right: 50px;
+    opacity: 60%;
+}
+@media (max-width: 768px) {
+  .popup-image .popup-image {
+    width: 95%;
+  }
+}
