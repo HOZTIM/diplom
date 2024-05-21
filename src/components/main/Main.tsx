@@ -184,7 +184,7 @@ function Main() {
         <TrainingProgram />
       </div>
       {/* <div className="container"> */}
-        <Career />
+      <Career />
       {/* </div> */}
       <div className="container">
         <Rates />

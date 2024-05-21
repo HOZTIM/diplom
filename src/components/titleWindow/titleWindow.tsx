@@ -1,6 +1,21 @@
 import React, { useState } from "react";
 import "./titleWindow.css";
 import logo from "../../img/logo.png";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
+import Userfront, {
+  SignupForm,
+  LoginForm,
+  PasswordResetForm,
+  LogoutButton,
+} from "@userfront/toolkit/react";
+Userfront.init("demo1234");
 
 export const TitleWindow = () => {
   return (
@@ -8,10 +23,36 @@ export const TitleWindow = () => {
       <div className="titleWindow_shadow">
         <div className="container">
           <div className="logo">
-            <img src={logo} alt="Logo" className="logo_img" />
-            <div className="logo_title">
-              Онлайн <br /> курсы
+            <div className="logo_content">
+              <img src={logo} alt="Logo" className="logo_img" />
+              <div className="logo_title">
+                Онлайн <br /> курсы
+              </div>
             </div>
+            <nav className="navbar">
+              <ul>
+                <li>
+                  <Link to="/main">Главная</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard">Уроки</Link>
+                </li>
+                <li>
+                  <Link to="/">Регистрация</Link>
+                </li>
+                <li>
+                  <Link to="/login">Вход</Link>
+                </li>
+                {/* <li>
+                  <Link to="/reset">Забыл пароль</Link>
+                </li> */}
+              </ul>
+              {Userfront.tokens.accessToken && (
+                <div style={{ width: "200px" }}>
+                  <LogoutButton />
+                </div>
+              )}
+            </nav>
           </div>
           <div className="titleWindow_middle order">
             <div className="titleWindow_description newSkills order_el">
