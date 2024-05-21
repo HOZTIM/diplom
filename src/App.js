@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,6 +14,13 @@ import Userfront, {
   LogoutButton,
 } from "@userfront/toolkit/react";
 import Main from "./components/main/Main.tsx";
+// import logo from "../../img/logo.png";
+import logo from "./img/logo.png";
+import { Navbar } from "./components/navbar/Navbar.tsx";
+import Blender from "./components/blender/Blender.tsx";
+import Component3dMax from "./components/3dMax/Component3dMax.tsx";
+import Maya from "./components/Maya/Maya.tsx";
+import Cinema4D from "./components/Cinema4D/Cinema4D.tsx";
 import "./App.css";
 Userfront.init("demo1234");
 
@@ -21,42 +28,15 @@ export default function App() {
   return (
     <Router>
       <div>
-        {/* <nav>
-          <ul>
-            <li>
-              <Link to="/main">Главная</Link>
-            </li>
-            <li>
-              <Link to="/">Регистрация</Link>
-            </li>
-            <li>
-              <Link to="/login">Вход</Link>
-            </li>
-            <li>
-              <Link to="/reset">Забыл пароль</Link>
-            </li>
-            <li>
-              <Link to="/dashboard">Уроки</Link>
-            </li>
-          </ul>
-          {Userfront.tokens.accessToken && (
-            <div style={{ width: "200px" }}>
-              <LogoutButton />
-            </div>
-          )}
-        </nav> */}
-
         <Routes>
-          {/* <Route
-            path="/main"
+          <Route
+            path="/"
             element={
               <div className="App">
                 <Main />
               </div>
             }
-          /> */}
-              
-          <Route path="/" element={<div className="App"><Main /></div>} />
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/reset" element={<PasswordReset />} />
@@ -76,8 +56,7 @@ export default function App() {
 
 function Home() {
   return (
-    <div>
-      <h2>Home</h2>
+    <div className="auth">
       <SignupForm />
     </div>
   );
@@ -85,8 +64,7 @@ function Home() {
 
 function Login() {
   return (
-    <div>
-      <h2>Login</h2>
+    <div className="auth">
       <LoginForm />
     </div>
   );
@@ -94,20 +72,39 @@ function Login() {
 
 function PasswordReset() {
   return (
-    <div>
-      <h2>Password Reset</h2>
+    <div className="auth">
       <PasswordResetForm />
     </div>
   );
 }
 
 function Dashboard() {
-  const userData = JSON.stringify(Userfront.user, null, 2);
+  const [playlist, setPlaylist] = useState("blender");
+
   return (
-    <div>
-      <h2>Dashboard</h2>
-      <pre>{userData}</pre>
-      <button onClick={Userfront.logout}>Logout</button>
+    <div className="container">
+      <div className="logo">
+        <div className="logo_content">
+          <img src={logo} alt="Logo" className="logo_img" />
+          <div className="logo_title">
+            Онлайн <br /> курсы
+          </div>
+        </div>
+        <Navbar />
+      </div>
+      <div className="lessons_category">
+        <ul className="lessons_menu">
+          <li onClick={() => setPlaylist("blender")}>Blender</li>
+          <li onClick={() => setPlaylist("3dmax")}>3dMax</li>
+          <li onClick={() => setPlaylist("Maya")}>Maya</li>
+          <li onClick={() => setPlaylist("Cinema4D")}>Cinema 4D</li>
+        </ul>
+      </div>
+
+      {playlist == "blender" && <Blender />}
+      {playlist == "3dmax" && <Component3dMax />}
+      {playlist == "Maya" && <Maya />}
+      {playlist == "Cinema4D" && <Cinema4D />}
     </div>
   );
 }

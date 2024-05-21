@@ -13,8 +13,10 @@ import Userfront, {
   SignupForm,
   LoginForm,
   PasswordResetForm,
-  LogoutButton,
+  // LogoutButton,
 } from "@userfront/toolkit/react";
+import { LogoutButton } from "../logout/Logout.tsx";
+import { Navbar } from "../navbar/Navbar.tsx";
 Userfront.init("demo1234");
 
 export const TitleWindow = () => {
@@ -29,30 +31,7 @@ export const TitleWindow = () => {
                 Онлайн <br /> курсы
               </div>
             </div>
-            <nav className="navbar">
-              <ul>
-                <li>
-                  <Link to="/main">Главная</Link>
-                </li>
-                <li>
-                  <Link to="/dashboard">Уроки</Link>
-                </li>
-                <li>
-                  <Link to="/home">Регистрация</Link>
-                </li>
-                <li>
-                  <Link to="/login">Вход</Link>
-                </li>
-                {/* <li>
-                  <Link to="/reset">Забыл пароль</Link>
-                </li> */}
-              </ul>
-              {Userfront.tokens.accessToken && (
-                <div style={{ width: "200px" }}>
-                  <LogoutButton />
-                </div>
-              )}
-            </nav>
+            <Navbar/>
           </div>
           <div className="titleWindow_middle order">
             <div className="titleWindow_description newSkills order_el">
@@ -117,3 +96,31 @@ export const TitleWindow = () => {
     </div>
   );
 };
+
+// class LogoutButton extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       disabled: !Userfront.tokens.accessToken,
+//     };
+
+//     this.handleClick = this.handleClick.bind(this);
+//   }
+
+//   handleClick(event) {
+//     event.preventDefault();
+//     Userfront.logout();
+//   }
+
+//   render() {
+//     return (
+//       <button
+//         id="logout-button"
+//         onClick={this.handleClick}
+//         disabled={this.state.disabled}
+//       >
+//         Log out
+//       </button>
+//     );
+//   }
+// }
