@@ -38,7 +38,7 @@ export const TitleWindow = () => {
                   <Link to="/dashboard">Уроки</Link>
                 </li>
                 <li>
-                  <Link to="/">Регистрация</Link>
+                  <Link to="/home">Регистрация</Link>
                 </li>
                 <li>
                   <Link to="/login">Вход</Link>

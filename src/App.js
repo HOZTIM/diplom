@@ -47,16 +47,18 @@ export default function App() {
         </nav> */}
 
         <Routes>
-          <Route
+          {/* <Route
             path="/main"
             element={
               <div className="App">
                 <Main />
               </div>
             }
-          />
-          <Route path="/" element={<Home />} />
+          /> */}
+              
+          <Route path="/" element={<div className="App"><Main /></div>} />
           <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/reset" element={<PasswordReset />} />
           <Route
             path="/dashboard"
