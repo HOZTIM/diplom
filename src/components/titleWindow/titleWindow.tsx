@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./titleWindow.css";
 import logo from "../../img/logo.png";
 import {
@@ -15,11 +15,60 @@ import Userfront, {
   PasswordResetForm,
   // LogoutButton,
 } from "@userfront/toolkit/react";
+import emailjs from "@emailjs/browser";
 import { LogoutButton } from "../logout/Logout.tsx";
 import { Navbar } from "../navbar/Navbar.tsx";
 Userfront.init("demo1234");
 
 export const TitleWindow = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [telegram, setTelegram] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const serviceId = "service_eqfr7v4";
+    const templateId = "template_yhvkzsq";
+    const publicKey = "4tYOIapCZqQvppJkO";
+
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      to_name: "Онлайн курсы",
+      telegram: telegram,
+      phone: phone,
+    };
+
+    emailjs
+      .send(serviceId, templateId, templateParams, publicKey)
+      .then((response) => {
+        console.log("Email sent successfully!", response);
+        // setName("");
+        // setEmail("");
+        // setTelegram("");
+        // setPhone("");
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+      });
+  };
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_eqfr7v4", "template_yhvkzsq", form.current, {
+        publicKey: "4tYOIapCZqQvppJkO",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
   return (
     <div className="titleWindow">
       <div className="titleWindow_shadow">
@@ -31,7 +80,7 @@ export const TitleWindow = () => {
                 Онлайн <br /> курсы
               </div>
             </div>
-            <Navbar/>
+            <Navbar />
           </div>
           <div className="titleWindow_middle order">
             <div className="titleWindow_description newSkills order_el">
@@ -54,23 +103,41 @@ export const TitleWindow = () => {
                 инструментами
               </div>
             </div>
-            <form action="" className="order_form order_el">
+            <form
+              onSubmit={handleSubmit}
+              id="order_form order_el"
+              className="order_form order_el"
+            >
               <h3 className="h3Form">
                 Получить полную <br /> программу обучения
               </h3>
-              <input type="text" placeholder="ваше имя" className="inputForm" />
-              <input type="text" placeholder="e-mail" className="inputForm" />
               <input
-                type="tel"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                required
+                type="text"
+                placeholder="ваше имя"
+                name="user_name"
                 className="inputForm"
-                placeholder="+7 (999) 999-99-99"
+                onChange={(e) => setName(e.target.value)}
               />
-              <input type="text" placeholder="telegram" className="inputForm" />
-              <button type="submit" className="btnForm">
-                Получить
-              </button>
+              <input
+                type="email"
+                placeholder="e-mail"
+                name="user_email"
+                className="inputForm"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="text"
+                className="inputForm"
+                placeholder="+7 (999) 999-99f-99"
+                onChange={(e) => setPhone(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="telegram"
+                className="inputForm"
+                onChange={(e) => setTelegram(e.target.value)}
+              />
+              <input type="submit" value="Send" className="btnForm" />
             </form>
           </div>
           <div className="titleWindow_footer">

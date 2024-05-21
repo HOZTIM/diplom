@@ -87,6 +87,10 @@
   color: #000;
   font-size: 20px;
   background-color: #fbbc05;
+  cursor: pointer;
+}
+.btnForm:hover{
+  color: #fff;
 }
 .logo_content {
   display: flex;
