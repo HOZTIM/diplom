@@ -4,6 +4,16 @@
   background-image: url("../../img/cat.png");
   /* background-repeat: no-repeat; */
 }
+.gray{
+  background-color: hsl(0, 0%, 45%);
+  color: var(--gray-100);
+  font-size: 1.25em;
+  font-weight: 500;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: inherit;
+}
 .titleWindow_shadow {
   background-image: linear-gradient(
     0turn,
@@ -48,13 +58,12 @@
 .order_form {
   display: flex;
   flex-direction: column;
+  gap: 0.5em;
+  transition: color ease 0.3s, background-color ease 0.3s;
 }
 .titleWindow_footer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 100px;
-  margin-bottom: 50px;
+  justify-content: space-evenly;
 }
 .award_title {
   font-size: 24px;
@@ -66,31 +75,33 @@
   opacity: 70%;
 }
 .inputForm {
-  margin: 4px 0;
-  border: 0;
-  padding: 0;
-  z-index: 1;
-  background-color: transparent;
-  border-bottom: 2px solid #eee;
-  font: inherit;
-  font-size: 24px;
-  line-height: 30px;
-  opacity: 60%;
-  color: #fff;
+  color: var(--gray-150);
+  background-color: var(--gray-900);
+  border-radius: 0.5em;
+  padding: 0.5em;
+  transition: inherit;
+}
+.inputForm:is(:hover, :focus-within) {
+  color: var(--gray-250);
+  background-color: var(--gray-800);
 }
 .h3Form {
-  color: #fff;
+  color: var(--gray-50);
+  font-weight: 800;
 }
 .btnForm {
-  margin-top: 10px;
-  height: 60px;
-  color: #000;
-  font-size: 20px;
-  background-color: #fbbc05;
+  color: var(--gray-100);
+  font-size: 1.25em;
+  font-weight: 500;
+  background-color: #f17222;
+  padding: 0.5em;
+  border-radius: 0.5em;
   cursor: pointer;
+  transition: inherit;
 }
-.btnForm:hover{
-  color: #fff;
+.btnForm:hover {
+  color: var(--gray-50);
+  background-color: #ef7d36;
 }
 .logo_content {
   display: flex;
@@ -107,4 +118,49 @@
 }
 .navbar ul {
   display: flex;
+}
+@media (max-width: 430px) {
+  .logo {
+    flex-direction: row;
+  }
+  .titleWindow_middle {
+    flex-direction: column;
+    margin: 10px 0;
+  }
+  .order_el {
+    padding: 0;
+  }
+  .order_form {
+    padding: 25px;
+  }
+  .navbar {
+    padding-bottom: 5px;
+    padding-top: 20px;
+  }
+  .logo_img {
+    width: 80px;
+    height: 80px;
+  }
+  .logo_title {
+    font-size: 16px;
+    color: #fff;
+  }
+  .titleWindow_description {
+    font-size: 16px;
+  }
+  .newSkills_skill {
+    border-bottom: 1px solid #fff;
+    margin: 5px 0;
+    padding-bottom: 5px;
+  }
+  .h3Form {
+    color: var(--gray-50);
+    font-weight: 600;
+    font-size: 1em;
+  }
+  .titleWindow_footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }

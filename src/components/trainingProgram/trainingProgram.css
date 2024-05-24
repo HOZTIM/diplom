@@ -1,29 +1,46 @@
-.trainingProgram{
-    margin: 100px 0;
-    display: flex;
+.trainingProgram {
+  margin: 100px 0;
+  display: flex;
+  flex-direction: column;
+}
+.trainingProgram_top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.trainingProgram_title,
+.desc_title {
+  font-size: 42px;
+  color: #fff;
+  text-align: start;
+}
+.desc_desc {
+  font-size: 16px;
+  color: #fff;
+  opacity: 60%;
+}
+.desc {
+  padding-right: 100px;
+  text-align: start;
+}
+.desc_content {
+  font-size: 18px;
+  color: #fff;
+  padding: 25px 0;
+}
+@media (max-width: 430px) {
+  .trainingProgram {
+    margin: 0;
+  }
+  .trainingProgram_top {
     flex-direction: column;
-}
-.trainingProgram_top{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.trainingProgram_title, .desc_title{
-    font-size: 42px;
-    color:#fff;
-    text-align: start;
-}
-.desc_desc{
-    font-size: 16px;
-    color: #fff;
-    opacity: 60%;
-}
-.desc{
-    padding-right: 100px;
-    text-align: start;
-}
-.desc_content{
-    font-size: 18px;
-    color: #fff;
-    padding: 25px 0;
+  }
+  .trainingProgram_title,
+  .desc_title {
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+  .desc_desc{
+    margin-top: 10px;
+  }
 }

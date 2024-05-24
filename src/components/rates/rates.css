@@ -49,13 +49,15 @@
   height: 500px;
 }
 .rate_btn {
-    cursor: pointer;
+  cursor: pointer;
   display: flex;
   background-color: rgb(225, 255, 41);
   height: 80px;
   justify-content: center;
   align-items: center;
   font-size: 24px;
+  text-decoration: none;
+  color: #000;
 }
 .discont {
   display: flex;
@@ -66,27 +68,46 @@
   border-radius: 5px;
   background-color: rgb(225, 255, 41);
 }
-.old_price{
+.old_price {
+  text-align: start;
+  color: #fff;
+  opacity: 60%;
+  font-size: 21px;
+}
+.new_price {
+  text-align: start;
+  color: #fff;
+  font-size: 64px;
+}
+.currency {
+  color: #fff;
+}
+.plan {
+  color: #fff;
+}
+.price_desc {
+  display: flex;
+  justify-content: space-around;
+}
+.rate_price {
+  padding: 15px;
+}
+@media (max-width: 430px) {
+  .rates_title {
+    font-size: 1.5em;
+    color: #fff;
     text-align: start;
-    color: #fff;
-    opacity: 60%;
-    font-size: 21px;
-}
-.new_price{
-    text-align: start;
-    color: #fff;
-    font-size: 64px;
-}
-.currency{
-    color: #fff;
-}
-.plan{
-    color: #fff;
-}
-.price_desc{
+  }
+  .rates_cards {
     display: flex;
-    justify-content: space-around;
-}
-.rate_price{
-    padding: 15px;
+    flex-direction: column;
+  }
+  .rates_rate {
+    width: 340px;
+    height: 880px;
+    margin: 10px 0;
+  }
+  .rates_descritrion {
+    padding: 0;
+  }
 }

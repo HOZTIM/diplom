@@ -1,22 +1,8 @@
 import React, { useRef, useState } from "react";
 import "./titleWindow.css";
 import logo from "../../img/logo.png";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  Navigate,
-  useLocation,
-} from "react-router-dom";
-import Userfront, {
-  SignupForm,
-  LoginForm,
-  PasswordResetForm,
-  // LogoutButton,
-} from "@userfront/toolkit/react";
+import Userfront from "@userfront/toolkit/react";
 import emailjs from "@emailjs/browser";
-import { LogoutButton } from "../logout/Logout.tsx";
 import { Navbar } from "../navbar/Navbar.tsx";
 Userfront.init("demo1234");
 
@@ -25,12 +11,14 @@ export const TitleWindow = () => {
   const [email, setEmail] = useState("");
   const [telegram, setTelegram] = useState("");
   const [phone, setPhone] = useState("");
+  const [activeBtn, setActiveBtn] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const serviceId = "service_eqfr7v4";
     const templateId = "template_yhvkzsq";
     const publicKey = "4tYOIapCZqQvppJkO";
+    setActiveBtn(false);
 
     const templateParams = {
       from_name: name,
@@ -43,11 +31,7 @@ export const TitleWindow = () => {
     emailjs
       .send(serviceId, templateId, templateParams, publicKey)
       .then((response) => {
-        console.log("Email sent successfully!", response);
-        // setName("");
-        // setEmail("");
-        // setTelegram("");
-        // setPhone("");
+        console.log("Email sent successfully!", response)
       })
       .catch((error) => {
         console.error("Error sending email:", error);
@@ -113,14 +97,14 @@ export const TitleWindow = () => {
               </h3>
               <input
                 type="text"
-                placeholder="ваше имя"
+                placeholder="Ваше имя"
                 name="user_name"
                 className="inputForm"
                 onChange={(e) => setName(e.target.value)}
               />
               <input
                 type="email"
-                placeholder="e-mail"
+                placeholder="E-Mail"
                 name="user_email"
                 className="inputForm"
                 onChange={(e) => setEmail(e.target.value)}
@@ -128,16 +112,16 @@ export const TitleWindow = () => {
               <input
                 type="text"
                 className="inputForm"
-                placeholder="+7 (999) 999-99f-99"
+                placeholder="+7 (999) 999-99-99"
                 onChange={(e) => setPhone(e.target.value)}
               />
               <input
                 type="text"
-                placeholder="telegram"
+                placeholder="Telegram"
                 className="inputForm"
                 onChange={(e) => setTelegram(e.target.value)}
               />
-              <input type="submit" value="Send" className="btnForm" />
+              <input type="submit" value="Оставить заявку" className={!activeBtn ? "gray" : "btnForm"}/>
             </form>
           </div>
           <div className="titleWindow_footer">
@@ -161,33 +145,5 @@ export const TitleWindow = () => {
         </div>
       </div>
     </div>
-  );
-};
-
-// class LogoutButton extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       disabled: !Userfront.tokens.accessToken,
-//     };
-
-//     this.handleClick = this.handleClick.bind(this);
-//   }
-
-//   handleClick(event) {
-//     event.preventDefault();
-//     Userfront.logout();
-//   }
-
-//   render() {
-//     return (
-//       <button
-//         id="logout-button"
-//         onClick={this.handleClick}
-//         disabled={this.state.disabled}
-//       >
-//         Log out
-//       </button>
-//     );
-//   }
-// }
+  )
+}

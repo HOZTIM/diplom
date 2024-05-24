@@ -61,7 +61,7 @@ const FAQ = ({ faq }) => {
 
 export const FAQs = ({ faqs }) => {
   return (
-    <dl>
+    <dl className="FAQ_main">
       {faqs.map((faq, index) => (
         <FAQ faq={faq} key={index} />
       ))}

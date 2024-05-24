@@ -47,7 +47,7 @@ export const Rates = () => {
               <div className="plan">при рассрочке на 36 мес.</div>
             </div>
           </div>
-          <div className="rate_btn">Оплатить курс сразу</div>
+          <a className="rate_btn" href="https://t.me/myrequest_linguachannel_bot">Оплатить курс сразу</a>
         </div>
         <div className="rates_rate">
           <div className="rate_title">ОПТИМАЛЬНЫЙ</div>
@@ -91,7 +91,7 @@ export const Rates = () => {
               <div className="plan">при рассрочке на 36 мес.</div>
             </div>
           </div>
-          <div className="rate_btn">Оплатить курс сразу</div>
+          <a className="rate_btn" href="https://t.me/myrequest_linguachannel_bot">Оплатить курс сразу</a>
         </div>
         <div className="rates_rate">
           <div className="rate_title">VIP</div>
@@ -141,7 +141,7 @@ export const Rates = () => {
               <div className="plan">при рассрочке на 36 мес.</div>
             </div>
           </div>
-          <div className="rate_btn">Оплатить курс сразу</div>
+          <a className="rate_btn" href="https://t.me/myrequest_linguachannel_bot">Оплатить курс сразу</a>
         </div>
       </div>
     </div>

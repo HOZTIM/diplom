@@ -1,15 +1,17 @@
 .authors {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   max-height: 700px;
-  overflow-x: scroll;
   margin: 40px 0;
 }
 .authors_content {
   display: flex;
+  overflow-y: scroll;
   flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 600px;
+  width: 100%;
 }
 .author {
   width: 230px;
@@ -35,26 +37,39 @@
   color: #fff;
   opacity: 60%;
 }
-.authors::-webkit-scrollbar-thumb {
+.authors_content::-webkit-scrollbar-thumb {
   background-color: #000;
 }
-.authors::-webkit-scrollbar-track {
+.authors_content::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: #c5c5c5;
 }
-.authors::-webkit-scrollbar {
+.authors_content::-webkit-scrollbar {
   width: 10px;
   background-color: #181818;
 }
 
-.authors::-webkit-scrollbar-thumb {
+.authors_content::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #5a5a5a;
 }
 
-.authors::-webkit-scrollbar-track {
+.authors_content::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: #181818;
+}
+.authors_title {
+  font-size: 1.5em;
+  color: #fff;
+}
+@media (max-width: 430px) {
+  .authors_title {
+    font-size: 1.5em;
+    color: #fff;
+  }
+  .author {
+    margin: 20px 30px;
+  }
 }
